@@ -51,6 +51,8 @@ def _get_general_info_from_df(df_series, i) -> GeneralInfo:
         df_series[SCHEMA_PRONOUNS][i],
         df_series[SCHEMA_SLACK][i],
         df_series[SCHEMA_GITHUB][i],
+        df_series[SCHEMA_OPT_IN][i],
+        df_series[SCHEMA_HOW_MANY_TIMES_APPLIED_PREVIOUSLY][i],
         df_series[SCHEMA_AFFILIATION][i]
     )
 
@@ -99,12 +101,10 @@ def _get_newcomer_info_from_df(newcomer) -> list[ApplicantData]:
             experience_contributing=newcomer[SCHEMA_NEWCOMERS_EXPERIENCE_CONTRIBUTING][i],
             signed_cla=newcomer[SCHEMA_NEWCOMERS_SIGNED_CLA][i],
             k8s_org_member=newcomer[SCHEMA_NEWCOMERS_K8S_ORG_MEMBER][i],
-            prior_release_teams=newcomer[SCHEMA_NEWCOMERS_PRIOR_RELEASE_TEAMS][i],
             relevant_experience=newcomer[SCHEMA_NEWCOMERS_RELEVANT_EXPERIENCE][i],
             goals=newcomer[SCHEMA_NEWCOMERS_GOALS][i],
             contribution_plans=newcomer[SCHEMA_NEWCOMERS_CONTRIBUTION_PLANS][i],
-            comments=newcomer[SCHEMA_NEWCOMERS_COMMENTS][i],
-            applied_previously=newcomer[SCHEMA_NEWCOMERS_APPLIED_PREVIOUSLY][i]
+            comments=newcomer[SCHEMA_NEWCOMERS_COMMENTS][i]
         )
         team_newcomer_applicants.append(
             ApplicantData(general_info, newcomer_info)

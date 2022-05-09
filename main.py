@@ -126,9 +126,8 @@ if __name__ == "__main__":
         # create dummy application data
         data = create_dummy_applicants(50)
 
+    # generate applicantion summary markdown files
+    create_application_summaries(data)
     # create plots / charts
     create_general_plotting(data)
     create_team_plotting(data)
-
-    # generate applicantion summary markdown files
-    create_application_summaries(data)

@@ -44,6 +44,12 @@ class PronounsProvider(BaseProvider):
         return secrets.choice(pronouns)
 
 
+# How many times applied before provider class
+class AppliedBeforeProvider(BaseProvider):
+    def applied_before(self) -> str:
+        return secrets.choice(["This is my first time", "Once before", "Twice before", "Three or more times before"])
+
+
 # Company provider class
 class CompanyProvider(BaseProvider):
     def company2(self) -> str:
@@ -66,6 +72,7 @@ fake.add_provider(PronounsProvider)
 fake.add_provider(ReleaseTeamProvider)
 fake.add_provider(CompanyProvider)
 fake.add_provider(YesNoProvider)
+fake.add_provider(AppliedBeforeProvider)
 
 
 
@@ -86,6 +93,9 @@ def fake_get_pargraph() -> str:
 
 def fake_get_bool() -> str:
     return fake.yesno()
+
+def fake_applied_before() -> str:
+    return fake.applied_before()
 
 
 def fake_get_company() -> str:

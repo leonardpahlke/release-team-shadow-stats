@@ -67,6 +67,8 @@ class GeneralInfo:
     pronoun: string = field(default_factory=fake_get_pronoun)
     slack_handle: string = field(default_factory=fake_get_number_code)
     github_handle: string = field(default_factory=fake_get_number_code)
+    data_processing_opt_in: string = field(default_factory=fake_get_bool)
+    how_many_times_applied_to_the_release_team: string = field(default_factory=fake_applied_before)
     affiliation: string = field(default_factory=fake_get_company)
 
     # This method can be called to set empty string instead of the defaults
@@ -108,12 +110,10 @@ class NewcomerApplicant(Applicant):
     experience_contributing: string = field(default_factory=fake_get_pargraph)
     signed_cla: string = field(default_factory=fake_get_bool)
     k8s_org_member: string = field(default_factory=fake_get_bool)
-    prior_release_teams: string = field(default_factory=fake_get_pargraph)
     relevant_experience: string = field(default_factory=fake_get_text)
     goals: string = field(default_factory=fake_get_text)
     contribution_plans: string = field(default_factory=fake_get_text)
     comments: string = field(default_factory=fake_get_pargraph)
-    applied_previously: string = field(default_factory=fake_get_bool)
 
     # This method can be called to set empty string instead of the defaults
     def clean(self) -> NewcomerApplicant:
